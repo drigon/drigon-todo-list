@@ -45,7 +45,7 @@
             </div>
 
             <ul class="todo-list mt-4">
-                @foreach ($todos as $todo)
+                @forelse ($todos as $todo)
                 <li class="flex justify-between items-center mt-3 border-b pb-2">
                     <div class="flex items-center">
                         <input type="checkbox" title="Mark as completed" wire:click="markAsCompleted({{$todo->id}})"
@@ -64,7 +64,9 @@
                         <x-delete-btn :id="$todo->id" />
                     </div>
                 </li>
-                @endforeach
+                @empty
+                <li class="text-center text-gray-600 text-sm">You don't have any task for now. 😊</li>
+                @endforelse
             </ul>
         </div>
     </div>
