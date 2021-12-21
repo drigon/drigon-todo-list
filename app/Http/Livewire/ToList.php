@@ -47,7 +47,9 @@ class ToList extends Component
     public function deleteTodo($todo_id)
     {
         $option = TodoList::find($todo_id);
-        $option->delete();
+        if($option){
+            $option->delete();
+        }
     }
 
     public function markAsCompleted($todo_id)
