@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateList extends Migration
+class CreateTodoListsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateList extends Migration
      */
     public function up()
     {
-        Schema::create('list', function (Blueprint $table) {
+        Schema::create('todo_lists', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -21,7 +21,7 @@ class CreateList extends Migration
             $table->text('description')->nullable(); 
             $table->timestamp('deadline')->nullable();
             $table->timestamp('completed_at')->nullable();
-            $table->enum('payment_method', ['in_progress', 'review', 'open', 'closed', 'todo']);
+            $table->enum('status', ['in_progress', 'review', 'open', 'closed', 'todo'])->default('open');;
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreateList extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('list');
+        Schema::dropIfExists('todo_lists');
     }
 }

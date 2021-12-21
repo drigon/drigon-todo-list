@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <img class="w-48" src="/svg/todo.svg" alt="Todo list">
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
