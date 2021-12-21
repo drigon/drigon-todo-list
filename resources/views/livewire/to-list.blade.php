@@ -50,7 +50,7 @@
                     <div class="flex items-center">
                         <input type="checkbox" title="Mark as completed" wire:click="markAsCompleted({{$todo->id}})"
                             @if($todo->completed_at != '') checked @endif>
-                        <div class="capitalize cursor-pointer ml-3 text-sm font-semibold @if($todo->completed_at != '') line-through @endif"
+                        <div class="capitalize break-all cursor-pointer ml-3 mr-2 text-sm font-semibold @if($todo->completed_at != '') line-through @endif"
                             onclick="Livewire.emit('openModal', 'description', {{ json_encode(['todo_id' => $todo->id]) }})">
                             {{ $todo->task }} @if($todo->description != '') <button
                                 class="text-xs ml-2 text-gray-600 hover:text-blue-400">[See More]</button> @endif
